@@ -1,14 +1,21 @@
+import os
 from datetime import datetime
 
 from peewee import *
+from playhouse.db_url import connect
 
-DATABASE = PostgresqlDatabase('shows')
+
+
+if 'ON_HEROKU' in os.environ:
+    DATABASE = connect(os.environ.get('https://next-flick.herokuapp.com/'))
+else:
+    DATABASE = PostgresqlDatabase('shows')
 
 class Show(Model):
     name = CharField(unique=True)
-    type = CharField(unique=True)
-    category = CharField(unique=True)
-    where = CharField(unique=True)
+    type = CharField()
+    category = CharField()
+    where = CharField()
     created_at = DateTimeField(default=datetime.now)
 
     class Meta:

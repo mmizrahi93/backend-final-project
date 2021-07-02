@@ -17,9 +17,9 @@ def create_show():
         print(show.__dict__)
 
         return jsonify(data=model_to_dict(show), status={'code': 201, 'message': 'Success'})
-    except IntegrityError:
+    except IntegrityError as err:
         print('Invalid Schema was sent')
-
+        print(err)
         return jsonify(data={}, status={'code': 401, 'message': 'Invalid show schema'})
 
 #  show route
@@ -54,7 +54,8 @@ def get_all_shows():
         for show in db_shows:
             print(show)
             print(model_to_dict(show))
-            shows.append(model_to_dict(shows))
+            shows.append(model_to_dict(show))
+
         return jsonify(data=shows, status={'code': 200, 'message': 'Success'})
     except models.DoesNotExist:
         return jsonify(data={}, status={"code": 401, "message": "Error getting the resources"})

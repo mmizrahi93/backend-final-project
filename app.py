@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, g
 from flask_cors import CORS
 
@@ -24,8 +25,12 @@ def after_request(response):
 def index():
     return 'hi'
 
-CORS(show, origins=['http://localhost:3000'], supports_credentials=True)
+# CORS(show, origins=['http://localhost:3000'], supports_credentials=True)
 app.register_blueprint(show, url_prefix='/api/v1/shows')
+
+if 'ON_HEROKU' in os.environ: 
+  print('\non heroku!')
+  models.initialize()
 
 if __name__ == '__main__':
     models.initialize()
