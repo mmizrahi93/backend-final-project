@@ -7,9 +7,11 @@ from playhouse.db_url import connect
 
 
 if 'ON_HEROKU' in os.environ:
-    DATABASE = connect(os.environ.get('postgres://zvzvxyydfvrhvm:3a2adb4e7583a477af869d4880b2c803fc32e414b489ce6ff1ebb4bc187d8a43@ec2-54-147-93-73.compute-1.amazonaws.com:5432/dern94jbssvdkh'))
+    DATABASE = PostgresqlDatabase('dern94jbssvdkh', user='zvzvxyydfvrhvm', password='3a2adb4e7583a477af869d4880b2c803fc32e414b489ce6ff1ebb4bc187d8a43',
+    host='ec2-54-147-93-73.compute-1.amazonaws.com', port=5432)
 else:
-    DATABASE = PostgresqlDatabase('shows')
+    DATABASE = PostgresqlDatabase('dern94jbssvdkh', user='zvzvxyydfvrhvm', password='3a2adb4e7583a477af869d4880b2c803fc32e414b489ce6ff1ebb4bc187d8a43',
+    host='ec2-54-147-93-73.compute-1.amazonaws.com', port=5432)
 
 class Show(Model):
     name = CharField(unique=True)
