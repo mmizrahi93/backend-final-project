@@ -25,7 +25,7 @@ def after_request(response):
 def index():
     return 'hi'
 
-# CORS(show, origins=['http://localhost:3000'], supports_credentials=True)
+CORS(show, origins=['http://localhost:3000', 'http://localhost:3000/popularapp', 'https://enigmatic-bayou-89258.herokuapp.com/', 'https://enigmatic-bayou-89258.herokuapp.com','https://enigmatic-bayou-89258.herokuapp.com/popularapp', 'https://enigmatic-bayou-89258.herokuapp.com/popularapp/'], supports_credentials=True)
 app.register_blueprint(show, url_prefix='/api/v1/shows')
 
 if 'ON_HEROKU' in os.environ: 
