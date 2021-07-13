@@ -13,5 +13,5 @@ Used Flask, Postgres, CORS and Heroku for the backend and have it connect to the
 <h2>Future Improvements</h2>
 
 Add user authentication to the backend.
-Add a third party API
-Add a comment section
+Add a third party API.
+Add a comment section.
