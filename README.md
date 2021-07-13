@@ -8,7 +8,7 @@ Used Flask, Postgres, CORS and Heroku for the backend and have it connect to the
 
 <h2>App Link</h2>
 
-https://enigmatic-bayou-89258.herokuapp.com/ 
+[NextFlick](https://enigmatic-bayou-89258.herokuapp.com/) 
 
 <h2>Future Improvements</h2>
 
